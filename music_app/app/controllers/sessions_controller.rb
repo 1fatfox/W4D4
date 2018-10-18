@@ -13,11 +13,11 @@ class SessionsController < ApplicationController
     if user.nil?
       flash.now[:errors] = ["Invalid email or password"]
       render :new
-    elsif !user.activated?
-      flash.now[:errors] = ['Activate your account. Check your inbox!']
-      render :new
+    # elsif !user.activated?
+    #   flash.now[:errors] = ['Activate your account. Check your inbox!']
+    #   render :new
     else
-      login_user!(user)
+      log_in_user!(user)
       redirect_to root_url
     end
   end
