@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <a class='button' href=<%= new_user_url %>>Sign Up</a>
+  <h2 class='page-header'>Sign-in</h2>
+  <style>
+    h2 {background-color: #9d41f4; color: #fffb0f; text-align: center; text-transform: full-width; text-indent: 20px;
+    font-size: 50px;}
+    form { background-color: #d6f8ff; text-align: center; border-style: solid; border-color: #ffebaa; border-width: 20px;}
+    a { font-size: 20px; color: red; text-indent: 20px;}
+  </style>
+
+  <form action="<%= session_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <br>
+      <label for='new-user-email'>Email</label>
+      <input id='new-user-email' type="text" name="user[email]">
+    <br>
+    <br>
+      <label for='new-user-password'>Password</label>
+      <input id='new-user-password' type="password" name="user[password]">
+    <br>
+    <br>
+    <input type="submit">
+    <br>
+    <br>
+  </form>
+</html>

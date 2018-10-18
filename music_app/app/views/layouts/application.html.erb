@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+
+<style>
+  h1 {
+    color:red;
+    background-color: #61f441;
+    text-align: center;
+    font-style: oblique;
+    border-radius: 100px;
+    font-size: 100px;
+  }
+</style>
+
+<div style=”width: 25%; height: 50px; overflow: auto; scrollbar-face-color: #CE7E00; scrollbar-shadow-color: #FFFFFF; br /scrollbar-highlight-color: #6F4709; scrollbar-3dlight-color:#11111; scrollbar-darkshadow-color: #6F4709; br /scrollbar-track-color: #FFE8C1; scrollbar-arrow-color: #6F4709;”>This is real </div>
+
+  <body>
+    <div class='main-content'>
+      <h1 class='main-logo'>Music App</h1>
+      <% if current_user %>
+        <nav>
+          <a class='button' href="<%= bands_url %>">Take me Home</a>
+
+          <div class='user-detail'>
+            <p>Logged in as: <%= current_user.email %></p>
+          <form action=<%= session_url %> method='post'>
+            <input
+              type="hidden"
+              name="_method"
+              value="delete">
+            <input
+              type="hidden"
+              name="authenticity_token"
+              value="<%= form_authenticity_token %>">
+            <input
+              type="submit" value="Sign Out">
+          </form>
+          </div>
+        </nav>
+      <% end %>
+
+      <% if flash[:notice] %>
+        <p><%= flash[:notice] %></p>
+      <% end %>
+
+      <% if flash[:errors] %>
+        <p><%= flash[:errors].join(", ") %></p>
+      <% end %>
+    <%= yield %>
+    </div>
+  </body>
+</html>
+
+
+<!-- <style>
+  table,
+  td {
+    border: 1px solid #2e81a5;
+  }
+  thead,
+  tfoot {
+    background-color: #2e81a5;
+    color: #e2850b;
+  }
+</style>
+<table> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Music App</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+</html> -->

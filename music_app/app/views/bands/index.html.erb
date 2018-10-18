@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<h1 class='page-header'>Bands</h1>
+
+<ul class='main-list'>
+  <% @bands.each do |band| %>
+    <li><a href="<%= band_url(band) %>"><p><%= band.name %></p></a></li>
+  <% end %>
+</ul>
+
+<h4 class='sub-header'>Links</h4>
+<ul class='page-links'>
+  <li><a class='button' href="<%= new_band_url %>" >New band</a></li>
+</ul>
+</html>
+
+<style >
+  li { border-width: 30px; background-color: #eeffba; color: white; }
+  h1 {font-family: monospace;}
+  h4 { background-color: purple; font-size: 60px; font-style: italic; font-family: monospace; }
+</style>
